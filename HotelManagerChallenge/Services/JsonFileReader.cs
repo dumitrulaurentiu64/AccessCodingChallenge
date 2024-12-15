@@ -50,7 +50,7 @@ namespace HotelManagerChallenge.Services
             }
         }
 
-        private static string SanitizeJson(string jsonContent)
+        private string SanitizeJson(string jsonContent)
         {
             string jsonContentWithDoubleQuotes = jsonContent.Replace('“', '"').Replace('”', '"');
 

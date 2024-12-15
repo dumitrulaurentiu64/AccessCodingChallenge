@@ -39,24 +39,11 @@ namespace HotelManagerChallenge.Commands
 
         private int CalculateAvailableRooms(List<Room> rooms, string roomTypeCode, List<Booking> bookings, List<DateTime> dates)
         {
-            int bookedRooms = 0;
-            int totalRooms = rooms.Where(r => r.RoomType == roomTypeCode).Count();
+            int totalRooms = rooms.Count(r => r.RoomType == roomTypeCode);
+            var relevantBookings = bookings.Where(b => b.RoomType == roomTypeCode &&
+                                                       dates.Any(d => d >= b.Arrival && d < b.Departure));
 
-            foreach (var booking in bookings)
-            {
-                if (booking.RoomType == roomTypeCode)
-                {
-                    foreach (var date in dates)
-                    {
-                        if (date >= booking.Arrival && date < booking.Departure)
-                        {
-                            bookedRooms++;
-                            break;
-                        }
-                    }
-                }
-            }
-
+            int bookedRooms = relevantBookings.Count();
             return totalRooms - bookedRooms;
         }
 

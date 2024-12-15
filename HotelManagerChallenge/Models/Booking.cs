@@ -23,7 +23,7 @@ namespace HotelManagerChallenge.Models
         public override DateTime ReadJson(JsonReader reader, Type objectType, DateTime existingValue, bool hasExistingValue, JsonSerializer serializer)
         {
             if (reader.Value == null)
-                throw new JsonSerializationException("Null value cannot be converted a valid Date.");
+                throw new JsonSerializationException("Null value cannot be converted to a valid date.");
 
             return DateTime.ParseExact(reader.Value.ToString(), DateFormat, CultureInfo.InvariantCulture);
         }
