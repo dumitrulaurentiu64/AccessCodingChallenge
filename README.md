@@ -6,11 +6,13 @@ The .NET 8 Software Development Kit (SDK) is required for building and running t
 You can download the .NET 8 SDK from the official .NET Download page.
 
 
-In order to run and test the application the user needs to be inside HotelManagerChallenge directory.
-There the user can build and run the application through the following commands
+Steps to Build and Run:
 
-dotnet build
-dotnet run --hotels hotels.json --bookings bookings.json
+1. Navigate to the HotelManagerChallenge directory.
+2. Use the following commands to build and run the program:
+
+          dotnet build
+          dotnet run --hotels hotels.json --bookings bookings.json
 
 
 # Using the app
@@ -22,17 +24,23 @@ The application allows the user to interact with the Hotel Manager through 2 com
 
 1. Availability(>HotelId<, >RangeOfDates<, >RoomType<) 
 
-    -> This is used to show the number of available rooms of a particular **type** from a **hotel** in a given **time interval** or day.
-The command CAN return a negative value due to the fact that the rooms of that type can be overbooked.
+- This command displays the number of available rooms of a specific type for a given hotel and date range.
+- Note: The result can be negative if the rooms of that type are overbooked.
 
 
 2. RoomTypes(>HotelId<, >RangeOfDates<, >NumberOfPeople<)
 
 
-    -> This is used to allocate given **number of people** in a **time interval** or day in a particular **hotel**.
-This should priotize a low number of rooms occupied and the avoidance of partially filled rooms.
+- This command allocates the specified number of people within a hotel over a date range.
+- The allocation prioritizes:
 
-Leaving the input blank results in quiting the Hotel Manager application.
+     - Minimizing the number of rooms used.
+     - Avoiding partially filled rooms.
+
+
+3. Exiting the Application
+
+- To exit the Hotel Manager application, leave the input blank and press Enter.
 
 
 ---------------------------------------------------------------------------
